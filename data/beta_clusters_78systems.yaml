@@ -1,0 +1,33 @@
+# β-Cluster data from UTAC v1.0 (78 threshold systems)
+# Source: DOI 10.5281/zenodo.17472834
+# β = steepness parameter of logistic threshold model
+clusters:
+  - domain: "climate"
+    beta_center: 0.10
+    beta_range: [0.05, 0.15]
+    n_systems: 12
+    examples: ["AMOC", "Arctic ice", "Greenland tipping"]
+  - domain: "ecological"
+    beta_center: 0.25
+    beta_range: [0.15, 0.35]
+    n_systems: 18
+    examples: ["coral bleaching", "species extinction", "Amazon dieback"]
+  - domain: "neural"
+    beta_center: 0.50
+    beta_range: [0.35, 0.65]
+    n_systems: 16
+    examples: ["neural criticality", "seizure onset", "anesthesia transitions"]
+  - domain: "astrophysical"
+    beta_center: 0.93
+    beta_range: [0.65, 1.20]
+    n_systems: 14
+    examples: ["stellar collapse", "neutron star mass", "black hole accretion"]
+  - domain: "ai"
+    beta_center: 1.85
+    beta_range: [1.20, 2.50]
+    n_systems: 18
+    examples: ["LLM emergence", "phase transitions", "neural network learning"]
+
+total_systems: 78
+phi_cuberoot: 1.17480502
+scaling_claim: "inter-cluster log-spacing consistent with Φ^(1/3)"

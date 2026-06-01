@@ -1,0 +1,62 @@
+# CREP Spectrum — GenesisAeon Packages P17–P30
+# Γ (gamma) = dimensionless criticality-entropy parameter
+# Source: GenesisAeon Entropy Atlas, DOI 10.5281/zenodo.17472834
+entries:
+  - package: 17
+    name: "Cygnus X-1 Jet"
+    domain: "astrophysics"
+    gamma: 0.046
+  - package: 18
+    name: "AMOC Ocean Current"
+    domain: "oceanography"
+    gamma: 0.251
+  - package: 19
+    name: "Amazon Rainforest"
+    domain: "ecology"
+    gamma: 0.116
+  - package: 20
+    name: "Neural Criticality"
+    domain: "neuroscience"
+    gamma: 0.251
+  - package: 21
+    name: "Solar Flares"
+    domain: "heliophysics"
+    gamma: 0.014
+  - package: 22
+    name: "Sandpile SOC"
+    domain: "statistical-mechanics"
+    gamma: 0.336
+    note: "midpoint of [0.296, 0.376]"
+  - package: 23
+    name: "Seismic GR b-value"
+    domain: "geophysics"
+    gamma: 0.200
+  - package: 24
+    name: "Qubit Decoherence"
+    domain: "quantum-physics"
+    gamma: 0.050
+  - package: 25
+    name: "Apoptosis ATP threshold"
+    domain: "cell-biology"
+    gamma: 0.090
+  - package: 26
+    name: "Neuromorphic SNN"
+    domain: "neuromorphic-hardware"
+    gamma: 0.150
+  - package: 27
+    name: "Theta-Band Cognitive Rhythm"
+    domain: "cognitive-neuroscience"
+    gamma: 0.251
+  - package: 28
+    name: "Epi-Sigillin"
+    domain: "epigenetics"
+    gamma: 0.300
+    note: "dynamic, approximate"
+  - package: 29
+    name: "Proof-of-Resonance Consensus"
+    domain: "distributed-systems"
+    gamma: 0.367
+  - package: 30
+    name: "Diffusive Routing"
+    domain: "network-science"
+    gamma: 0.443
