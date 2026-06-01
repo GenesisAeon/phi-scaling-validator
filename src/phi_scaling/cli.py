@@ -27,7 +27,7 @@ app = typer.Typer(
 console = Console()
 
 
-@app.command()  # type: ignore[untyped-decorator]
+@app.command()
 def run(
     packages: str = typer.Option("17-37", help="Package range e.g. '17-37'"),
     json_output: bool = typer.Option(False, "--json", help="Output raw JSON"),
@@ -64,7 +64,7 @@ def run(
     console.print(f"\nUniversality score: [bold]{score:.0%}[/bold] of tested domains\n")
 
 
-@app.command()  # type: ignore[untyped-decorator]
+@app.command()
 def report() -> None:
     """Print detailed per-domain Φ^(1/3) report."""
     validator = PhiScalingValidator()
@@ -77,7 +77,7 @@ def report() -> None:
         console.print()
 
 
-@app.command()  # type: ignore[untyped-decorator]
+@app.command()
 def zenodo() -> None:
     """Print Zenodo metadata record for this package."""
     validator = PhiScalingValidator()
