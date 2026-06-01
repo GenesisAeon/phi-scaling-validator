@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "phi-scaling-validator: Phi^(1/3) Universal Scaling Validator (GenesisAeon P38)"
+version: 0.1.0
+date-released: "2026-06-01"
+doi: 10.5281/zenodo.17472834
+license: MIT
+authors:
+  - family-names: "Römer"
+    given-names: "Johann"
+    affiliation: "MOR Research Collective"
+repository-code: "https://github.com/GenesisAeon/phi-scaling-validator"
+keywords:
+  - golden ratio
+  - scaling exponent
+  - CREP
+  - UTAC
+  - complex systems
+  - criticality
+  - GenesisAeon
+abstract: >
+  Cross-domain validation of the Phi^(1/3) ~= 1.174 universal scaling exponent
+  across GenesisAeon Packages P17-P37. Tests beta-cluster ratios (78 threshold
+  systems), CREP Spectrum spacing, Q4 entropy landscape, and EML operator tree
+  depth ratios. Package 38 of the GenesisAeon entropy atlas.
+references:
+  - type: dataset
+    title: "UTAC v1.0 — Universal Threshold Adaptive Criticality"
+    doi: 10.5281/zenodo.17472834
+    authors:
+      - family-names: "Römer"
+        given-names: "Johann"
