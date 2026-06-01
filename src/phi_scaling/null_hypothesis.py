@@ -58,7 +58,7 @@ class NullHypothesis:
 
     def sample(self, n: int, *, seed: int = 0) -> list[float]:
         rng = np.random.default_rng(seed)
-        return rng.uniform(self.a, self.b, size=n).tolist()
+        return list(rng.uniform(self.a, self.b, size=n))
 
 
 @dataclass

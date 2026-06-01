@@ -100,7 +100,8 @@ class PhiScalingValidator:
         """Return detected Phi-scaling phase events."""
         if self._run_results is None:
             self.run_cycle()
-        return self._run_results["phase_events"]  # type: ignore[index]
+        assert self._run_results is not None
+        return list(self._run_results["phase_events"])
 
     # ------------------------------------------------------------------
     # Reporting
@@ -114,6 +115,7 @@ class PhiScalingValidator:
         """
         if self._run_results is None:
             self.run_cycle()
+        assert self._run_results is not None
         r = self._run_results
         return {
             "crep": {
@@ -142,12 +144,14 @@ class PhiScalingValidator:
         """Fraction of domains where Phi^(1/3) scaling is confirmed (p<0.05)."""
         if self._run_results is None:
             self.run_cycle()
-        return float(self._run_results["universality_score"])  # type: ignore[index]
+        assert self._run_results is not None
+        return float(self._run_results["universality_score"])
 
     def to_zenodo_record(self) -> dict[str, Any]:
         """Return a Zenodo-compatible metadata record for P38."""
         if self._run_results is None:
             self.run_cycle()
+        assert self._run_results is not None
         r = self._run_results
         return {
             "title": (

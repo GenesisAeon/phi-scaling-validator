@@ -16,6 +16,8 @@ The claim: tree-depth ratios follow Φ^(1/3) spacing (tentative).
 
 from __future__ import annotations
 
+from typing import Any
+
 from dataclasses import dataclass
 
 from .phi_constants import PHI_CUBEROOT
@@ -65,7 +67,7 @@ class EMLScalingAnalyzer:
     def analyse(self) -> TestResult:
         return test_phi_cuberoot_ratio(self.consecutive_ratios)
 
-    def summary(self) -> dict:
+    def summary(self) -> dict[str, Any]:
         res = self.analyse()
         return {
             "depths": self.depths,

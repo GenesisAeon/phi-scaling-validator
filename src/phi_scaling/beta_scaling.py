@@ -15,6 +15,8 @@ whole — the one-sample t-test result is reported transparently.
 
 from __future__ import annotations
 
+from typing import Any
+
 from dataclasses import dataclass
 
 import numpy as np
@@ -75,7 +77,7 @@ class BetaScalingAnalyzer:
     def bootstrap_ci(self, n_boot: int = 10_000) -> tuple[float, float]:
         return bootstrap_confidence_interval(self.ratios, n_boot=n_boot)
 
-    def log_ratio_analysis(self) -> dict:
+    def log_ratio_analysis(self) -> dict[str, Any]:
         """
         Log-scale spacing analysis.
 
@@ -94,7 +96,7 @@ class BetaScalingAnalyzer:
             "mean_phi_unit": float(phi_units.mean()),
         }
 
-    def summary(self) -> dict:
+    def summary(self) -> dict[str, Any]:
         tr = self.run_test()
         lra = self.log_ratio_analysis()
         ci = self.bootstrap_ci()

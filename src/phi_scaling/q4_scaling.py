@@ -19,6 +19,8 @@ toward 1.0.  The claim is softer: when normalised by the maximum level the
 
 from __future__ import annotations
 
+from typing import Any
+
 from dataclasses import dataclass
 
 from .phi_constants import PHI_CUBEROOT
@@ -84,7 +86,7 @@ class Q4ScalingAnalyzer:
         """
         return test_phi_cuberoot_ratio(self.consecutive_ratios)
 
-    def summary(self) -> dict:
+    def summary(self) -> dict[str, Any]:
         res = self.analyse()
         return {
             "levels": self._levels,

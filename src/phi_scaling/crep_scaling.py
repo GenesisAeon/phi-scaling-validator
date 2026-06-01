@@ -8,6 +8,8 @@ sorted non-zero Γ values are geometrically spaced with step ≈ Φ^(1/3).
 
 from __future__ import annotations
 
+from typing import Any
+
 from dataclasses import dataclass
 
 from .phi_constants import PHI_CUBEROOT
@@ -80,7 +82,7 @@ class CREPScalingAnalyzer:
         """Bootstrap 95 % CI on mean ratio."""
         return bootstrap_confidence_interval(self.ratios, n_boot=n_boot)
 
-    def ratio_table(self) -> list[dict]:
+    def ratio_table(self) -> list[dict[str, Any]]:
         """Return per-step analysis as a list of dicts."""
         g = self.sorted_gammas
         rows = []
@@ -99,7 +101,7 @@ class CREPScalingAnalyzer:
             )
         return rows
 
-    def summary(self) -> dict:
+    def summary(self) -> dict[str, Any]:
         tr = self.run_test()
         ci = self.bootstrap_ci()
         return {

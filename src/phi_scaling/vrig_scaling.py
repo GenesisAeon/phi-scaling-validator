@@ -9,6 +9,8 @@ and computes the ratio v_RIG / v_CMB_dipole to test for Φ-alignment.
 
 from __future__ import annotations
 
+from typing import Any
+
 from dataclasses import dataclass
 
 import numpy as np
@@ -72,7 +74,7 @@ class VRIGScalingAnalyzer:
             note=note,
         )
 
-    def summary(self) -> dict:
+    def summary(self) -> dict[str, Any]:
         r = self.analyse()
         return {
             "v_rig_km_s": r.v_rig,
