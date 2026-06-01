@@ -10,13 +10,12 @@ from __future__ import annotations
 import datetime
 from typing import Any
 
-from .phi_constants import PHI, PHI_CUBEROOT, V_RIG, V_CMB_DIPOLE
-from .crep_scaling import CREPScalingAnalyzer
 from .beta_scaling import BetaScalingAnalyzer
+from .crep_scaling import CREPScalingAnalyzer
+from .eml_scaling import EMLScalingAnalyzer
+from .phi_constants import PHI_CUBEROOT, V_RIG
 from .q4_scaling import Q4ScalingAnalyzer
 from .vrig_scaling import VRIGScalingAnalyzer
-from .eml_scaling import EMLScalingAnalyzer
-from .null_hypothesis import evaluate_null_hypothesis
 
 __all__ = ["PhiScalingValidator"]
 

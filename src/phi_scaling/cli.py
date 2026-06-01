@@ -16,7 +16,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from .phi_constants import PHI, PHI_CUBEROOT, V_RIG
+from .phi_constants import PHI_CUBEROOT, V_RIG
 from .system import PhiScalingValidator
 
 app = typer.Typer(
@@ -40,7 +40,7 @@ def run(
         typer.echo(json.dumps(result, indent=2))
         return
 
-    console.print(f"\n[bold cyan]Φ^(1/3) Universal Scaling Validator — P38[/bold cyan]")
+    console.print("\n[bold cyan]Φ^(1/3) Universal Scaling Validator — P38[/bold cyan]")
     console.print(f"Φ^(1/3) = {PHI_CUBEROOT:.8f}   v_RIG = {V_RIG:.2f} km/s\n")
 
     table = Table(title="Validation Summary")
@@ -49,7 +49,12 @@ def run(
     table.add_column("p-value", justify="right")
     table.add_column("Confirmed", justify="center")
 
-    for domain, key in [("CREP Spectrum", "crep"), ("Beta-Clusters", "beta"), ("Q4 Landscape", "q4"), ("EML Trees", "eml")]:
+    for domain, key in [
+        ("CREP Spectrum", "crep"),
+        ("Beta-Clusters", "beta"),
+        ("Q4 Landscape", "q4"),
+        ("EML Trees", "eml"),
+    ]:
         r = result[key]
         confirmed_str = "[green]YES[/green]" if r["confirmed"] else "[red]NO[/red]"
         table.add_row(domain, f"{r['mean_ratio']:.5f}", f"{r['p_value']:.4f}", confirmed_str)

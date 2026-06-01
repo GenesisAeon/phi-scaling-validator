@@ -8,13 +8,13 @@ log-ratio means to the predicted value log(Φ^(1/3)) = log(Φ)/3.
 from __future__ import annotations
 
 import math
+from collections.abc import Sequence
 from dataclasses import dataclass, field
-from typing import Sequence
 
 import numpy as np
 import scipy.stats as stats
 
-from .phi_constants import LOG_PHI_CUBEROOT, PHI, PHI_CUBEROOT
+from .phi_constants import PHI, PHI_CUBEROOT
 
 __all__ = [
     "TestResult",
@@ -35,7 +35,14 @@ class TestResult:
     """Two-tailed p-value."""
 
     confirmed: bool
-    """True when p_value < 0.05 — null hypothesis rejected at 5 % level."""
+    """True when the 95 % CI contains Φ^(1/3) AND mean_ratio passes the Frame
+    Principle tolerance (|mean - expected| / expected ≤ 1/16).
+
+    Semantics: confirmed = "data is *consistent with* Φ^(1/3) scaling".
+    A low p-value from ttest_1samp means the data differs *significantly* from
+    the Φ prediction — that is the *opposite* of confirmation.  We therefore
+    do NOT use p < 0.05 as the confirmation criterion here.
+    """
 
     ci_95: tuple[float, float]
     """95 % confidence interval for the mean ratio (or log-ratio)."""
@@ -102,14 +109,21 @@ def test_phi_cuberoot_ratio(
         f"t={t_stat:.3f}, p={p_val:.4f}"
     )
 
+    ci = (math.exp(ci_lo), math.exp(ci_hi))
+    expected = PHI ** exponent
+    # confirmed = CI contains expected AND within Frame Principle tolerance
+    ci_contains_expected = ci[0] <= expected <= ci[1]
+    within_tolerance = abs(mean_ratio - expected) / expected <= 1 / 16
+    confirmed = ci_contains_expected and within_tolerance
+
     return TestResult(
         statistic=float(t_stat),
         p_value=float(p_val),
-        confirmed=float(p_val) < 0.05,
-        ci_95=(math.exp(ci_lo), math.exp(ci_hi)),
+        confirmed=confirmed,
+        ci_95=ci,
         n=len(ratios_arr),
         mean_ratio=mean_ratio,
-        expected_ratio=PHI**exponent,
+        expected_ratio=expected,
         note=note,
     )
 
