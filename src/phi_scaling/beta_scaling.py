@@ -15,9 +15,8 @@ whole — the one-sample t-test result is reported transparently.
 
 from __future__ import annotations
 
-from typing import Any
-
 from dataclasses import dataclass
+from typing import Any
 
 import numpy as np
 
