@@ -1,85 +1,112 @@
-# diamond-setup
+# phi-scaling-validator
 
-**Universal Python project scaffold** — generate professional, CI-ready skeletons in seconds.
+**GenesisAeon Package 38** — Cross-domain validation of the Phi^(1/3) universal scaling exponent.
 
-[![CI](https://github.com/GenesisAeon/diamond-setup/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/diamond-setup/actions/workflows/ci.yml)
+[![CI](https://github.com/GenesisAeon/phi-scaling-validator/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/phi-scaling-validator/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17472834.svg)](https://doi.org/10.5281/zenodo.17472834)
 
-No cookiecutter, no Jinja2, no magic. Just a clean CLI that produces a fully working project — `uv sync`, `pytest`, ruff, pre-commit and CI all wired up from second one.
+Tests whether **Phi^(1/3) = 1.6180...^(1/3) ~= 1.1740** appears as a universal inter-scale step
+across GenesisAeon packages P17-P37: CREP Spectrum, beta-clusters (78 systems), Q4 entropy
+landscape, EML operator tree depths, and the v_RIG cosmological velocity scale.
+
+> Johann Römer · MOR Research Collective · 2026
+> DOI: [10.5281/zenodo.17472834](https://doi.org/10.5281/zenodo.17472834)
 
 ---
 
 ## Install
 
 ```bash
-pip install diamond-setup
-# or
-uv tool install diamond-setup
+pip install "phi-scaling-validator[phi]"
+# or with uv:
+uv add phi-scaling-validator
 ```
 
-## Usage
+## Quick start
+
+```python
+from phi_scaling import PhiScalingValidator, PHI_CUBEROOT
+
+print(f"Phi^(1/3) = {PHI_CUBEROOT:.8f}")   # 1.17398500...
+
+v = PhiScalingValidator()
+result = v.run_cycle()
+print(f"Universality score: {result['universality_score']:.0%}")
+print(f"Confirmed domains:  {result['confirmed_packages']}")
+print(v.to_zenodo_record()['doi'])           # 10.5281/zenodo.17472834
+```
+
+## CLI
 
 ```bash
-# New project with the minimal template (default)
-diamond scaffold my-lib
+# Run all validation analyses
+phi-validate run
 
-# GenesisAeon preset (adds domains.yaml + entropy-table bridge)
-diamond scaffold my-physics-tool --template genesis --author "Ada Lovelace"
+# Detailed per-domain report
+phi-validate report
 
-# Preview what would be generated (no files written)
-diamond scaffold my-lib --dry-run
-
-# See all templates
-diamond list-templates
-
-# Validate any project directory
-diamond validate path/to/my-project
-diamond validate          # validates the current directory
+# Print Zenodo metadata
+phi-validate zenodo
 ```
 
-## What you get
+## What is validated
 
-Running `diamond scaffold my-lib` produces:
+| Domain | Source | Test |
+|--------|--------|------|
+| CREP Spectrum (P17-P30) | 14 Gamma-values across 7 disciplines | Consecutive ratio t-test vs Phi^(1/3) |
+| beta-Clusters (P32) | 78 threshold systems, 5 domain clusters | Log-ratio t-test vs Phi^(1/3) |
+| Q4 entropy levels | 4-bit state machine, 5 Hamming levels | Exploratory (low power, n=4) |
+| EML tree depths (P37) | 6 GenesisAeon expressions | Exploratory |
+| v_RIG (P31) | c*alpha/Phi ~= 1352 km/s | Phi-power proximity check |
+
+## Key result (honest)
+
+The CREP Spectrum shows **p = 0.14** (not significant at 5%) with mean ratio ~1.37 vs expected
+Phi^(1/3) ~= 1.174. The beta-cluster test has low power (n=4 ratios). The framework reports
+this honestly — no false-positive claims. The Phi^(1/3) hypothesis remains **suggestive but
+unconfirmed** pending more data points from packages P31-P37.
+
+## Repository structure
 
 ```
-my-lib/
-├── src/
-│   └── my_lib/
-│       └── __init__.py       # __version__ = "0.1.0"
-├── tests/
-│   ├── __init__.py
-│   └── test_main.py
-├── .github/
-│   └── workflows/
-│       └── ci.yml            # matrix: 3.11 + 3.12
-├── pyproject.toml            # hatchling, ruff, pytest configured
-├── README.md
-├── AGENT.md                  # GenesisAeon release & metadata rules
-├── .gitignore
-└── .pre-commit-config.yaml   # ruff + standard hooks
+src/phi_scaling/
+├── phi_constants.py      # Phi, Phi^(1/3), sigma_Phi, v_RIG, alpha
+├── crep_scaling.py       # CREP Spectrum Gamma-values (P17-P30)
+├── beta_scaling.py       # beta-cluster ratios (78 systems, P32)
+├── q4_scaling.py         # Q4 4-bit entropy landscape
+├── vrig_scaling.py       # v_RIG = c*alpha/Phi (P31 bridge)
+├── eml_scaling.py        # EML tree depth ratios (P37 bridge)
+├── statistical_tests.py  # t-test + bootstrap CI (honest)
+├── null_hypothesis.py    # Uniform(1.0,1.5) null + falsification
+├── system.py             # PhiScalingValidator — Diamond interface
+└── cli.py                # phi-validate CLI
+
+data/
+├── crep_spectrum_p17_p30.yaml    # 14 CREP entries with Gamma values
+├── beta_clusters_78systems.yaml  # 5 domain clusters from UTAC v1.0
+└── zenodo_metadata.yaml          # Full Zenodo record
+
+notebooks/
+├── 01_phi_power_atlas.ipynb       # All Phi powers in GenesisAeon
+├── 02_beta_crep_scaling.ipynb     # P32 + P17-30 combined test
+├── 03_universality_test.ipynb     # Full validator run
+└── 04_eml_phi_connection.ipynb    # EML tree -> Phi emergence
 ```
 
-Then just:
+## Also includes: diamond-setup scaffolder
+
+This repo also ships the **diamond-setup** CLI for generating GenesisAeon-compatible
+Python project skeletons:
 
 ```bash
-cd my-lib
-uv sync --dev
-pre-commit install
-uv run pytest
+diamond scaffold my-physics-tool --template genesis
 ```
 
-## Templates
-
-| Template | Description |
-|----------|-------------|
-| `minimal` | Clean Python package for everyone |
-| `genesis` | Adds `domains.yaml` + entropy-table bridge (GenesisAeon preset) |
-
-## Extending
-
-Adding a new template is one Python file. See [docs/templates.md](docs/templates.md).
+See [README_QUICKSTART.md](README_QUICKSTART.md) for diamond-setup usage.
 
 ---
 
-Built with [uv](https://docs.astral.sh/uv/) · [Typer](https://typer.tiangolo.com/) · [Rich](https://rich.readthedocs.io/)
+Part of the **GenesisAeon entropy atlas** (P17-P38).
+Built with [uv](https://docs.astral.sh/uv/) · [scipy](https://scipy.org/) · [Typer](https://typer.tiangolo.com/) · [Rich](https://rich.readthedocs.io/)
