@@ -19,7 +19,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from .phi_constants import LOG_PHI_CUBEROOT, PHI, PHI_CUBEROOT
+from .phi_constants import PHI, PHI_CUBEROOT
 from .statistical_tests import TestResult, bootstrap_confidence_interval, test_phi_cuberoot_ratio
 
 __all__ = [

@@ -8,9 +8,7 @@ sorted non-zero Γ values are geometrically spaced with step ≈ Φ^(1/3).
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-
-import numpy as np
+from dataclasses import dataclass
 
 from .phi_constants import PHI_CUBEROOT
 from .statistical_tests import TestResult, bootstrap_confidence_interval, test_phi_cuberoot_ratio

@@ -13,7 +13,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from .phi_constants import PHI, PHI_CUBEROOT, V_CMB_DIPOLE, V_RIG
+from .phi_constants import PHI, V_CMB_DIPOLE, V_RIG
 
 __all__ = [
     "VRIGScalingAnalyzer",

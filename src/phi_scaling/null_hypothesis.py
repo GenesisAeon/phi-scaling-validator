@@ -14,7 +14,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
-import scipy.stats as stats
 
 from .phi_constants import PHI_CUBEROOT, SIGMA_PHI
 from .statistical_tests import TestResult, test_phi_cuberoot_ratio
