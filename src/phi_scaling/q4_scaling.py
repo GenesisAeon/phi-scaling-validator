@@ -19,9 +19,8 @@ toward 1.0.  The claim is softer: when normalised by the maximum level the
 
 from __future__ import annotations
 
-from typing import Any
-
 from dataclasses import dataclass
+from typing import Any
 
 from .phi_constants import PHI_CUBEROOT
 from .statistical_tests import TestResult, test_phi_cuberoot_ratio

@@ -9,9 +9,8 @@ and computes the ratio v_RIG / v_CMB_dipole to test for Φ-alignment.
 
 from __future__ import annotations
 
-from typing import Any
-
 from dataclasses import dataclass
+from typing import Any
 
 import numpy as np
 

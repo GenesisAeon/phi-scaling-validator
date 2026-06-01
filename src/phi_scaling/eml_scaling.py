@@ -16,9 +16,8 @@ The claim: tree-depth ratios follow Φ^(1/3) spacing (tentative).
 
 from __future__ import annotations
 
-from typing import Any
-
 from dataclasses import dataclass
+from typing import Any
 
 from .phi_constants import PHI_CUBEROOT
 from .statistical_tests import TestResult, test_phi_cuberoot_ratio
