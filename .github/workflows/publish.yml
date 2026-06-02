@@ -1,11 +1,13 @@
-name: Publish to PyPI
+name: Release
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - "v*.*.*"
 
 permissions:
-  contents: read
+  contents: write
+  id-token: write
 
 jobs:
   build:
@@ -15,18 +17,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install build tools
         run: pip install build
-
       - name: Build wheel and sdist
         run: python -m build
-
-      - name: Upload dist artifacts
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: dist
@@ -36,16 +34,31 @@ jobs:
     name: Publish to PyPI
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/project/diamond-setup/
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
-
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
+          # Repository secret: Settings → Secrets → Actions → PYPITOKEN
           password: ${{ secrets.PYPITOKEN }}
+
+  github-release:
+    name: Create GitHub Release
+    needs: publish-pypi
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') || contains(github.ref, 'rc') }}
