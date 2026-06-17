@@ -2,6 +2,21 @@
 
 All notable changes to phi-scaling-validator are documented here.
 
+## [1.0.0] — 2026
+
+### Added
+
+- Standardized GenesisAeon ecosystem release tooling: `.zenodo.json`
+  community metadata, `RELEASE_GUIDE.md`, `CONTRIBUTING.md`, issue/PR
+  templates (`.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md`).
+
+### Changed
+
+- Promoted to v1.0.0 as part of the GenesisAeon ecosystem-wide 1.0.0
+  milestone. No breaking changes to the public API or Diamond Interface
+  (`run_cycle`, `get_crep_state`, `get_utac_state`, `get_phase_events`,
+  `to_zenodo_record`) since 0.1.0.
+
 ## [0.1.0] — 2026-06-01
 
 ### Added — Package 38 (phi-scaling-validator)

@@ -1,20 +1,22 @@
 [project]
-name = "diamond-setup"
+name = "phi-scaling-validator"
 version = "1.0.0"
-description = "Universal Python project scaffold and phi-scaling-validator: Phi^(1/3) universal scaling validator (GenesisAeon P38)"
+description = "Phi^(1/3) universal scaling validator (GenesisAeon P38), bundled with the diamond-setup project scaffolding CLI"
 readme = "README.md"
 license = { text = "MIT" }
-authors = [{ name = "GenesisAeon" }]
+authors = [{ name = "Johann Römer" }]
 requires-python = ">=3.11"
-keywords = ["scaffold", "template", "cli", "project-generator", "skeleton"]
+keywords = ["phi", "golden ratio", "scaling exponent", "CREP", "UTAC", "GenesisAeon", "scaffold", "project-generator"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
     "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
     "Topic :: Software Development :: Code Generators",
 ]
 dependencies = [
@@ -48,10 +50,10 @@ diamond = "diamond_setup.cli:app"
 phi-validate = "phi_scaling.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/GenesisAeon/diamond-setup"
-Repository = "https://github.com/GenesisAeon/diamond-setup"
-Documentation = "https://genesisaeon.github.io/diamond-setup"
-Issues = "https://github.com/GenesisAeon/diamond-setup/issues"
+Homepage = "https://github.com/GenesisAeon/phi-scaling-validator"
+Repository = "https://github.com/GenesisAeon/phi-scaling-validator"
+Documentation = "https://genesisaeon.github.io/phi-scaling-validator"
+Issues = "https://github.com/GenesisAeon/phi-scaling-validator/issues"
 Zenodo = "https://doi.org/10.5281/zenodo.17472834"
 
 [build-system]

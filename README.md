@@ -16,9 +16,11 @@ landscape, EML operator tree depths, and the v_RIG cosmological velocity scale.
 
 ---
 
-## Install
+## Installation
 
 ```bash
+pip install phi-scaling-validator
+# with optional notebook/plotting extras:
 pip install "phi-scaling-validator[phi]"
 # or with uv:
 uv add phi-scaling-validator
@@ -105,6 +107,37 @@ diamond scaffold my-physics-tool --template genesis
 ```
 
 See [README_QUICKSTART.md](README_QUICKSTART.md) for diamond-setup usage.
+
+---
+
+## Role in the GenesisAeon Ecosystem
+
+`phi-scaling-validator` is **Package P38** of the GenesisAeon ecosystem, in
+the **cross-domain meta-analysis** domain. It is the validator package that
+checks whether the Phi^(1/3) scaling exponent observed across packages
+P17-P37 (CREP Spectrum, beta-clusters, Q4 entropy landscape, EML operator
+trees, v_RIG) is a genuine cross-domain universality, or an artifact —
+honestly reporting non-significant results rather than overstating
+confirmation.
+
+## Citation
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17472834.svg)](https://doi.org/10.5281/zenodo.17472834)
+
+This package has an assigned Zenodo DOI: `10.5281/zenodo.17472834`. New
+GitHub Releases will mint updated DOI versions automatically once
+Zenodo-GitHub integration is enabled for this repo.
+
+```bibtex
+@software{phi_scaling_validator,
+  author       = {Römer, Johann},
+  title        = {phi-scaling-validator: Phi^(1/3) Universal Scaling Validator (GenesisAeon P38)},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17472834},
+  url          = {https://doi.org/10.5281/zenodo.17472834}
+}
+```
 
 ---
 
