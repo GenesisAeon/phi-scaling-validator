@@ -17,7 +17,9 @@
     "universality",
     "GenesisAeon",
     "entropy atlas",
-    "statistical mechanics"
+    "statistical mechanics",
+    "P38",
+    "cross-domain meta-analysis"
   ],
   "creators": [
     {
@@ -33,5 +35,8 @@
       "resource_type": "dataset"
     }
   ],
-  "notes": "GenesisAeon Package 38. Part of the entropy atlas P17-P38. DOI: 10.5281/zenodo.17472834. Built with Python 3.11+, scipy, numpy, typer."
+  "notes": "GenesisAeon Package 38. Part of the entropy atlas P17-P38. DOI: 10.5281/zenodo.17472834. Built with Python 3.11+, scipy, numpy, typer.",
+  "communities": [
+    { "identifier": "genesisaeon" }
+  ]
 }
