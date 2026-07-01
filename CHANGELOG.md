@@ -2,6 +2,17 @@
 
 All notable changes to phi-scaling-validator are documented here.
 
+## [Unreleased]
+
+## [1.1.0] — 2026-07-01
+
+### Changed
+- `PhiScalingValidator` subclasses `diamond_setup.DiamondPackage`.
+- `diamond-setup>=2.1.0` as runtime dependency; vendored `src/diamond_setup/` removed.
+- `get_crep_state` / `get_utac_state` raise `NotConvergedError` before first `run_cycle`.
+- UTAC keys: `{H, H_star, K_eff}`; CREP key `Gamma`.
+- Removed bundled `diamond` CLI script (use `diamond-setup` package).
+
 ## [1.0.0] — 2026
 
 ### Added

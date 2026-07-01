@@ -170,17 +170,21 @@ def test_validator_universality_score_range():
 def test_validator_get_crep_state():
     from phi_scaling import PhiScalingValidator
 
-    state = PhiScalingValidator().get_crep_state()
+    v = PhiScalingValidator()
+    v.run_cycle()
+    state = v.get_crep_state()
     assert isinstance(state, dict)
-    for key in ("confirmed", "mean_ratio", "p_value"):
+    for key in ("C", "R", "E", "P", "Gamma"):
         assert key in state, f"Missing CREP state key: {key}"
 
 
 def test_validator_get_utac_state():
     from phi_scaling import PhiScalingValidator
 
-    state = PhiScalingValidator().get_utac_state()
-    assert "mean_ratio" in state
+    v = PhiScalingValidator()
+    v.run_cycle()
+    state = v.get_utac_state()
+    assert set(state.keys()) == {"H", "H_star", "K_eff"}
 
 
 def test_validator_get_phase_events():
@@ -197,7 +201,7 @@ def test_to_zenodo_record():
     record = PhiScalingValidator().to_zenodo_record()
     assert record["doi"] == "10.5281/zenodo.17472834"
     assert "GenesisAeon" in record["keywords"]
-    assert record["version"] == "0.1.0"
+    assert record["version"] == "1.1.0"
 
 
 def test_phi_occurrences_structure():
