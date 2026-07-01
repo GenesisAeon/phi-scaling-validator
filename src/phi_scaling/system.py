@@ -8,6 +8,7 @@ the CLI, notebooks, and Zenodo record generation.
 from __future__ import annotations
 
 import datetime
+from importlib.metadata import version as pkg_version
 from typing import Any
 
 from diamond_setup.protocol import (
@@ -176,7 +177,7 @@ class PhiScalingValidator(DiamondPackage):
         return {
             **base,
             "doi": _ZENODO_DOI,
-            "version": "1.1.0",
+            "version": pkg_version("phi-scaling-validator"),
             "license": "MIT",
             "upload_type": "software",
             "keywords": [
