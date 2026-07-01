@@ -5,7 +5,7 @@
   "access_right": "open",
   "license": "MIT",
   "language": "eng",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "golden ratio",
     "scaling exponent",
@@ -37,6 +37,8 @@
   ],
   "notes": "GenesisAeon Package 38. Part of the entropy atlas P17-P38. DOI: 10.5281/zenodo.17472834. Built with Python 3.11+, scipy, numpy, typer.",
   "communities": [
-    { "identifier": "genesisaeon" }
+    {
+      "identifier": "genesisaeon"
+    }
   ]
 }
