@@ -5,14 +5,14 @@
 [![CI](https://github.com/GenesisAeon/phi-scaling-validator/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/phi-scaling-validator/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17472834.svg)](https://doi.org/10.5281/zenodo.17472834)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20513358.svg)](https://doi.org/10.5281/zenodo.20513358)
 
 Tests whether **Phi^(1/3) = 1.6180...^(1/3) ~= 1.1740** appears as a universal inter-scale step
 across GenesisAeon packages P17-P37: CREP Spectrum, beta-clusters (78 systems), Q4 entropy
 landscape, EML operator tree depths, and the v_RIG cosmological velocity scale.
 
 > Johann Römer · MOR Research Collective · 2026
-> DOI: [10.5281/zenodo.17472834](https://doi.org/10.5281/zenodo.17472834)
+> DOI: [10.5281/zenodo.20513358](https://doi.org/10.5281/zenodo.20513358)
 
 ---
 
@@ -37,7 +37,7 @@ v = PhiScalingValidator()
 result = v.run_cycle()
 print(f"Universality score: {result['universality_score']:.0%}")
 print(f"Confirmed domains:  {result['confirmed_packages']}")
-print(v.to_zenodo_record()['doi'])           # 10.5281/zenodo.17472834
+print(v.to_zenodo_record()['doi'])           # 10.5281/zenodo.20513358
 ```
 
 ## CLI
@@ -122,9 +122,9 @@ confirmation.
 
 ## Citation
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17472834.svg)](https://doi.org/10.5281/zenodo.17472834)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20513358.svg)](https://doi.org/10.5281/zenodo.20513358)
 
-This package has an assigned Zenodo DOI: `10.5281/zenodo.17472834`. New
+This package has an assigned Zenodo DOI: `10.5281/zenodo.20513358`. New
 GitHub Releases will mint updated DOI versions automatically once
 Zenodo-GitHub integration is enabled for this repo.
 
@@ -134,8 +134,8 @@ Zenodo-GitHub integration is enabled for this repo.
   title        = {phi-scaling-validator: Phi^(1/3) Universal Scaling Validator (GenesisAeon P38)},
   year         = {2026},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.17472834},
-  url          = {https://doi.org/10.5281/zenodo.17472834}
+  doi          = {10.5281/zenodo.20513358},
+  url          = {https://doi.org/10.5281/zenodo.20513358}
 }
 ```
 

@@ -53,7 +53,7 @@ Homepage = "https://github.com/GenesisAeon/phi-scaling-validator"
 Repository = "https://github.com/GenesisAeon/phi-scaling-validator"
 Documentation = "https://genesisaeon.github.io/phi-scaling-validator"
 Issues = "https://github.com/GenesisAeon/phi-scaling-validator/issues"
-Zenodo = "https://doi.org/10.5281/zenodo.17472834"
+Zenodo = "https://doi.org/10.5281/zenodo.20513358"
 
 [build-system]
 requires = ["hatchling"]

@@ -28,7 +28,7 @@ from .vrig_scaling import VRIGScalingAnalyzer
 
 __all__ = ["PhiScalingValidator"]
 
-_ZENODO_DOI = "10.5281/zenodo.17472834"
+_ZENODO_DOI = "10.5281/zenodo.20513358"
 
 
 class PhiScalingValidator(DiamondPackage):
