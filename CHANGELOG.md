@@ -4,6 +4,16 @@ All notable changes to phi-scaling-validator are documented here.
 
 ## [Unreleased]
 
+### Changed (CI infrastructure only, no package code change)
+- Removed the redundant `.github/workflows/publish.yml`, which raced
+  `release.yml` on every tag push. Both were named "Release" and
+  triggered on tag pushes; `publish.yml` uploaded to PyPI via the
+  working `PYPITOKEN` secret, while `release.yml` used Trusted
+  Publishing (`environment: pypi`) whose publisher was never
+  registered at pypi.org, so it failed every time (harmlessly, since
+  the other workflow always succeeded). Merged into a single
+  `release.yml` using the token-based upload that was already working.
+
 ## [1.1.1] — 2026-09-15
 
 ### Fixed (test compatibility with diamond-setup 2.3.0)

@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  id-token: write
 
 jobs:
   build:
@@ -34,8 +33,6 @@ jobs:
     name: Publish to PyPI
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: pypi
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -43,6 +40,14 @@ jobs:
           path: dist/
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # Repository secret: Settings -> Secrets -> Actions -> PYPITOKEN
+          # (was Trusted Publishing via `environment: pypi` -- that publisher
+          # was never registered at pypi.org, so every tag push produced a
+          # second, always-failing workflow run alongside this one. Merged
+          # into a single working workflow using the token that was already
+          # configured and working; see FOLLOWUP_TICKETS.md.)
+          password: ${{ secrets.PYPITOKEN }}
 
   github-release:
     name: Create GitHub Release
