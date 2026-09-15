@@ -31,7 +31,7 @@ __all__ = ["PhiScalingValidator"]
 _ZENODO_DOI = "10.5281/zenodo.20513358"
 
 
-class PhiScalingValidator(DiamondPackage):
+class PhiScalingValidator(DiamondPackage):  # type: ignore[misc]
     """
     Diamond interface for Phi^(1/3) universal scaling validation (P38).
 
@@ -55,7 +55,7 @@ class PhiScalingValidator(DiamondPackage):
         """Execute the full validation cycle across the given package range."""
         if packages is not None:
             self._packages = packages
-        return super().run_cycle()
+        return super().run_cycle()  # type: ignore[no-any-return]
 
     def _run_cycle(self) -> dict[str, Any]:
         crep_summary = self._crep.summary()

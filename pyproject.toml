@@ -1,6 +1,6 @@
 [project]
 name = "phi-scaling-validator"
-version = "1.1.0"
+version = "1.1.1"
 description = "Phi^(1/3) universal scaling validator (GenesisAeon P38)"
 readme = "README.md"
 license = { text = "MIT" }

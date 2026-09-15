@@ -4,6 +4,30 @@ All notable changes to phi-scaling-validator are documented here.
 
 ## [Unreleased]
 
+## [1.1.1] — 2026-09-15
+
+### Fixed (test compatibility with diamond-setup 2.3.0)
+- `test_get_crep_state_keys` asserted an exact key set for
+  `get_crep_state()`'s output, which broke when `diamond-setup` 2.3.0
+  added an additive `bridge_adapted` field to `CREPState`. Changed to
+  a subset check so future additive protocol fields don't break this
+  test again.
+
+### Fixed (test correctness)
+- `test_to_zenodo_record` asserted `doi == "10.5281/zenodo.17472834"`,
+  which is `afet-tensions`' DOI, not this package's own
+  (`10.5281/zenodo.20513358`) — a copy-paste error (same pattern
+  previously found in `sa-sv-duality`). Corrected the assertion.
+- `PhiScalingValidator` subclassing `DiamondPackage` and its
+  `run_cycle()` override now carry `# type: ignore[misc]` /
+  `# type: ignore[no-any-return]`, matching the scope-resilience
+  precedent used elsewhere in the ecosystem (diamond-setup often
+  resolves to `Any` without a `py.typed` marker).
+
+Found during the ecosystem-wide Gamma-circularity /
+diamond-setup-2.3.0-compatibility review; see
+`D:\mandala\crep-utac-afet-formalism\FOLLOWUP_TICKETS.md`.
+
 ## [1.1.0] — 2026-07-01
 
 ### Changed

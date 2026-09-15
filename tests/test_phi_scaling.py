@@ -199,9 +199,9 @@ def test_to_zenodo_record():
     from phi_scaling import PhiScalingValidator
 
     record = PhiScalingValidator().to_zenodo_record()
-    assert record["doi"] == "10.5281/zenodo.17472834"
+    assert record["doi"] == "10.5281/zenodo.20513358"
     assert "GenesisAeon" in record["keywords"]
-    assert record["version"] == "1.1.0"
+    assert record["version"] == "1.1.1"
 
 
 def test_phi_occurrences_structure():
